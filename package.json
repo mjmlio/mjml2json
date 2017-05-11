@@ -10,6 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mjml": "^3.3.0"
+    "htmlparser2": "^3.9.2",
+    "mjml": "^3.2.2",
+    "lodash": "^4.17.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1"
   }
 }
