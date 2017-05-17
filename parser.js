@@ -153,6 +153,7 @@ export default function parseMjml (xml, {
     setEmptyAttributes(mjml)
   }
 
-  return mjml
-  
+  let mjmlstr = JSON.stringify(mjml)
+
+  return { "mjml": mjmlstr }
 }
