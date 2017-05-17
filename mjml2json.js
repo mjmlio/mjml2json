@@ -1,34 +1,50 @@
 import parseMjml from './parser'
 import fs from 'fs'
 
-const output = process.argv[3] ? process.argv[3] : 
-  process.argv[2] ? process.argv[2].replace('.mjml', '.json') : ''
+const input = process.argv[2]
+const output = process.argv[3]
+const stringifyOption = process.argv[4]
+
+console.log(process.argv)
 
 // Read MJML from input
-const inputMJML = 
-new Promise((fullfill, reject) => {
-  if (process.argv.length > 2) {
-    fs.readFile(process.argv[2], 'utf8', (err, mjmlContent) => {
-      if (err) {
-        reject(err)
-      }
-      else {
-        fullfill(mjmlContent)
-      }
+async function readMjml(mjmlJson) {
+  return new Promise(resolve => {
+    fs.readFile(mjmlJson, 'utf8', (err, mjmlContent) => {
+      resolve(mjmlContent)
     })
-  }
-  else {
-    reject('usage: babel-node mjml2json.js input [output]')
-  }
-})
-
-// Write the output in a (specified) file
-const outputJSON = (mjml) => {
-    fs.writeFile(output, JSON.stringify(parseMjml(mjml)), err => {
-      if (err) {
-        console.log(err)
-      }
-    })
+  })
 }
 
-inputMJML.then(outputJSON, console.log)
+// Write the output in a (specified) file
+const outputJSON = (mjml, stringifyOption) => {
+  if (stringifyOption) {
+    writeMjml(JSON.stringify({
+      "mjml": JSON.stringify(parseMjml(mjml))
+    }), output)
+  }
+  else {
+    writeMjml(JSON.stringify(parseMjml(mjml)), output)
+  }
+}
+
+const writeMjml = (outputMjml, outputLocation) => {
+  fs.writeFile(outputLocation, outputMjml, err => {
+    if (err) { console.log(err) }
+  })
+}
+
+async function outputAll(input, output, stringifyOption) {
+  const inputMjml = await readMjml(input)
+  
+  if (input && output) {
+    outputJSON(inputMjml, stringifyOption)
+    console.log(`Wrote ${output}`)
+  }
+  else {
+    console.log('usage: babel-node mjml2json.js input output [-s]')
+    return false
+  }
+}
+
+outputAll(input, output, stringifyOption)
