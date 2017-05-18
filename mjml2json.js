@@ -5,8 +5,6 @@ const input = process.argv[2]
 const output = process.argv[3]
 const stringifyOption = process.argv[4]
 
-console.log(process.argv)
-
 // Read MJML from input
 async function readMjml(mjmlJson) {
   return new Promise(resolve => {
@@ -35,11 +33,12 @@ const writeMjml = (outputMjml, outputLocation) => {
 }
 
 async function outputAll(input, output, stringifyOption) {
-  const inputMjml = await readMjml(input)
-  
   if (input && output) {
+    const inputMjml = await readMjml(input)
+    const stringified = stringifyOption ? ' (stringified)' : ''
     outputJSON(inputMjml, stringifyOption)
-    console.log(`Wrote ${output}`)
+    
+    console.log(`${input} was converted to JSON format in ${output}${stringified}`)
   }
   else {
     console.log('usage: babel-node mjml2json.js input output [-s]')
