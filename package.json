@@ -4,7 +4,7 @@
   "description": "",
   "main": "mjml2json.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "babel-node mjml2json.js ./tests/styleguide.mjml ./tests/styleguide.json"
   },
   "keywords": [],
   "author": "",
