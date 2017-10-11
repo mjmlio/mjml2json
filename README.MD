@@ -28,9 +28,11 @@ The `-s` option will stringify the output.
 
 ### Require hook
 
-```
+```js
 import mjml2json from 'mjml2json'
+
 // or
+
 const mjml2json = require('mjml2json')
 ```
 
