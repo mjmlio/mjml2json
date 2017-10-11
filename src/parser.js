@@ -53,16 +53,14 @@ function addCDATASection(content) {
 }
 
 function parseAttributes(content) {
-  const regexTag = tag =>
-    new RegExp(`<${tag}(\\s("[^"]*"|'[^']*'|[^'">])*)?>`, 'gmi')
+  const regexTag = tag => new RegExp(`<${tag}(\\s("[^"]*"|'[^']*'|[^'">])*)?>`, 'gmi')
   const regexAttributes = /(\S+)\s*?=\s*([\'"])(.*?|)\2/gim
 
   _.forEach(MJElements, tag => {
     content = content.replace(regexTag(tag), contentTag =>
       contentTag.replace(
         regexAttributes,
-        (match, attr, around, value) =>
-          `${attr}=${around}${encodeURIComponent(value)}${around}`,
+        (match, attr, around, value) => `${attr}=${around}${encodeURIComponent(value)}${around}`,
       ),
     )
   })
@@ -95,10 +93,7 @@ function setEmptyAttributes(node) {
   }
 }
 
-export default function parseMjml(
-  xml,
-  { addEmptyAttributes = true, convertBooleans = true } = {},
-) {
+export default function parseMjml(xml, { addEmptyAttributes = true, convertBooleans = true } = {}) {
   if (!xml) {
     return null
   }

@@ -28,12 +28,7 @@ import MJHeadFont from 'mjml-head-font'
 import MJHeadStyle from 'mjml-head-style'
 import MJHeadTitle from 'mjml-head-title'
 
-const {
-  Accordion,
-  AccordionElement,
-  AccordionTitle,
-  AccordionText,
-} = MJAccordion
+const { Accordion, AccordionElement, AccordionTitle, AccordionText } = MJAccordion
 const { Hero, HeroContent } = MJHero
 const { Invoice, InvoiceItem } = MJInvoice
 const { Carousel, CarouselImage } = MJCarousel
@@ -73,8 +68,6 @@ each(
   tag => registerMJElement(tag),
 )
 
-each([MJHeadAttributes, MJHeadFont, MJHeadStyle, MJHeadTitle], tag =>
-  registerMJHeadElement(tag),
-)
+each([MJHeadAttributes, MJHeadFont, MJHeadStyle, MJHeadTitle], tag => registerMJHeadElement(tag))
 
 export * from 'mjml-core'

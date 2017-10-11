@@ -19,6 +19,4 @@ const output = mjml2json(input, opts)
 fs.writeFileSync(outputFilename, output)
 
 const stringified = opts.stringify ? ' (stringified)' : ''
-console.log(
-  `${inputFilename} was converted to JSON format in ${outputFilename}${stringified}`,
-)
+console.log(`${inputFilename} was converted to JSON format in ${outputFilename}${stringified}`)
