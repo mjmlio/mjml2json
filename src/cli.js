@@ -1,19 +1,27 @@
 #!/bin/env node
 
 import fs from 'fs'
+import program from 'commander'
 import mjml2json from './mjml2json'
+import { version } from '../package.json'
 
-const inputFilename = process.argv[2]
-const outputFilename = process.argv[3]
-const opt = process.argv[4]
+program
+  .version(version)
+  .usage('[options] <input-file> <output-file>')
+  .option('-s, --stringify', 'Stringify output')
+  .parse(process.argv)
 
-if (!inputFilename || !outputFilename || (opt && opt !== '-s')) {
-  console.log('usage: mjml2json input.mjml output.json [-s]')
+if (program.args.length !== 2) {
+  program.outputHelp()
   process.exit(1)
 }
 
+const [inputFilename, outputFilename] = program.args
+
 const input = fs.readFileSync(inputFilename, 'utf8')
-const opts = { stringify: opt === '-s' }
+const opts = {
+  stringify: !!program.stringify,
+}
 const output = mjml2json(input, opts)
 
 fs.writeFileSync(outputFilename, output)

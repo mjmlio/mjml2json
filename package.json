@@ -12,6 +12,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "commander": "^2.11.0",
     "htmlparser2": "^3.9.2",
     "lodash": "^4.17.2",
     "mjml": "^3.2.2"
