@@ -34,6 +34,23 @@ import mjml2json from 'mjml2json'
 // or
 
 const mjml2json = require('mjml2json')
+
+const input = `
+  <mjml>
+    <mj-body>
+      <mj-container>
+        <mj-section>
+          <mj-column>
+            <mj-text>Hello world</mj-text>
+          </mj-column>
+        </mj-section>
+      </mj-container>
+    </mj-body>
+  </mjml>
+`
+const output = mjml2json(input)
+
+console.log(output)
 ```
 
 ## json2mjml
