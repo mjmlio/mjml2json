@@ -24,7 +24,7 @@ const opts = {
 }
 const output = mjml2json(input, opts)
 
-fs.writeFileSync(outputFilename, output)
+fs.writeFileSync(outputFilename, JSON.stringify(output))
 
 const stringified = opts.stringify ? ' (stringified)' : ''
-console.log(`${inputFilename} was converted to JSON format in ${outputFilename}${stringified}`)
+console.log(`${inputFilename} was converted to JSON format in ${outputFilename}${stringified}`) // eslint-disable-line no-console
