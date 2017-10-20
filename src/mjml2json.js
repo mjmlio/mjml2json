@@ -171,7 +171,7 @@ function parseMjml(xml, { addEmptyAttributes = true, convertBooleans = true } = 
 export default function mjml2json(input, opts = {}) {
   let json = parseMjml(input, opts)
   if (opts.stringify) {
-    json = { mjml: JSON.stringify(json) }
+    json = JSON.stringify(json)
   }
   return json
 }
