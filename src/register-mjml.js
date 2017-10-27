@@ -34,42 +34,40 @@ const { Invoice, InvoiceItem } = MJInvoice
 const { Carousel, CarouselImage } = MJCarousel
 const { Navbar, InlineLinks, Link } = MJNavbar
 
-each([
-  Accordion,
-  AccordionElement,
-  AccordionText,
-  AccordionTitle,
-  Button,
-  Carousel,
-  CarouselImage,
-  Column,
-  Container,
-  Divider,
-  Group,
-  Hero,
-  HeroContent,
-  Html,
-  Image,
-  InlineLinks,
-  Invoice,
-  InvoiceItem,
-  Link,
-  Location,
-  Navbar,
-  Raw,
-  Section,
-  Social,
-  Spacer,
-  Table,
-  Text,
-  Wrapper,
-], tag => registerMJElement(tag))
+each(
+  [
+    Accordion,
+    AccordionElement,
+    AccordionText,
+    AccordionTitle,
+    Button,
+    Carousel,
+    CarouselImage,
+    Column,
+    Container,
+    Divider,
+    Group,
+    Hero,
+    HeroContent,
+    Html,
+    Image,
+    InlineLinks,
+    Invoice,
+    InvoiceItem,
+    Link,
+    Location,
+    Navbar,
+    Raw,
+    Section,
+    Social,
+    Spacer,
+    Table,
+    Text,
+    Wrapper,
+  ],
+  tag => registerMJElement(tag),
+)
 
-each([
-  MJHeadAttributes,
-  MJHeadFont,
-  MJHeadStyle,
-  MJHeadTitle,
-], tag => registerMJHeadElement(tag))
+each([MJHeadAttributes, MJHeadFont, MJHeadStyle, MJHeadTitle], tag => registerMJHeadElement(tag))
 
 export * from 'mjml-core'
