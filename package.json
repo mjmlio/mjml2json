@@ -1,6 +1,6 @@
 {
   "name": "mjml2json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package to convert a MJML template from XML to JSON",
   "main": "lib/mjml2json.js",
   "bin": {
