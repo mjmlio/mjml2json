@@ -42,7 +42,7 @@ function cleanNode(node) {
  * Avoid htmlparser to parse ending tags
  */
 function addCDATASection(content) {
-  const regexTag = tag => new RegExp(`<${tag}([^>/]*)>([^]*?)</${tag}>`, 'gmi')
+  const regexTag = tag => new RegExp(`<${tag}((?:[ \n][^>/]*)?)>([^]*?)</${tag}>`, 'gmi')
   const replaceTag = tag => `<${tag}$1><![CDATA[$2]]></${tag}>`
 
   _.forEach(CDATASections, tag => {
