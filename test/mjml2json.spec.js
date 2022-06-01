@@ -3,13 +3,11 @@ import mjml2json from '../src/mjml2json'
 const MJML_BASIC = `
   <mjml>
     <mj-body>
-      <mj-container>
-        <mj-section>
-          <mj-column>
-            <mj-text>Hello world</mj-text>
-          </mj-column>
-        </mj-section>
-      </mj-container>
+      <mj-section>
+        <mj-column>
+          <mj-text>Hello world</mj-text>
+        </mj-column>
+      </mj-section>
     </mj-body>
   </mjml>
 `

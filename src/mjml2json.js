@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import htmlparser from 'htmlparser2'
-import MJMLElements from 'mjml-core/lib/MJMLElementsCollection'
+import {globalComponents} from 'mjml-core'
 
 import './register-mjml'
 
@@ -9,7 +9,7 @@ const MJElements = []
 
 _.forEach(
   {
-    ...MJMLElements,
+    ...globalComponents,
   },
   (element, name) => {
     const tagName = element.tagName || name
