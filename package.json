@@ -17,7 +17,7 @@
     "commander": "^2.11.0",
     "htmlparser2": "^3.9.2",
     "lodash": "^4.17.2",
-    "mjml": "^3.2.2"
+    "mjml": "^4.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
