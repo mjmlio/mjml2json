@@ -1,15 +1,15 @@
 import _ from 'lodash'
-import htmlparser from 'htmlparser2'
-import MJMLElements from 'mjml-core/lib/MJMLElementsCollection'
+import * as htmlparser from 'htmlparser2'
+import { globalComponents } from 'mjml-core'
 
-import './register-mjml'
+/*import './register-mjml'*/
 
 const CDATASections = []
 const MJElements = []
 
 _.forEach(
   {
-    ...MJMLElements,
+    ...globalComponents,
   },
   (element, name) => {
     const tagName = element.tagName || name
